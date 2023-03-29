@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Grading System</title>
+</head>
+
+<body>
+    
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="text-container">
+                <h1 class="h1-large">GRADING SYSTEM</h1>
+                    <p class="sub-head">Kyla Fiona Frances Lopez - 2R5</p>
+            </div>
+        </div>
+    </header> 
+
+    <!-- SUBJECTS AND RESULT -->
+    <div id="container" div class="container">
+        <div class="flex-box">
+            <div class="card">
+                <h2>SUBJECTS</h2>
+                    <div class="input">
+                        <label>ETHICS</label> <input type="number" id="e"><br>
+                        <label>LIFE OF RIZAL</label> <input type="number" id="r"><br>
+                        <label>NETWORKING</label> <input type="number" id="n"><br>
+                        <label>WEB SYSTEMS</label> <input type="number" id="w"><br>
+                        <label>INFORMATION MANAGEMENT</label> <input type="number" id="i"><br>
+                        <label>SYSTEM INTEGRATION</label> <input type="number" id="s"><br>
+                        <label>PATHFIT</label> <input tsype="number" id="p"><br>
+                
+                        <button class="button1" onclick="calculate()">CALCULATE TOTAL GRADE</button>
+                        <button class="button2" onclick="average()">CALCULATE AVERAGE GRADE</button>
+                        <button class="button3" onclick="remarks()">REMARKS</button>
+                        <button class ="button4" onclick="refresh()">REFRESH</button>
+                        </div>
+            
+                    <div class="card1">
+                        <h4>RESULTS</h4>
+                            <p id = "calculate"></p>
+                            <p id = "average"></p>
+                            <a id = "remarks"></a>
+                            <b id = "remarks1"></b>
+                </div>
+        </div>
+</body>
+
+
+
+<!-- FORMULA -->
+<script>
+function refresh(){
+    window.location.reload();
+} 
+
+function calculate() {
+    var subject1 = parseInt(document.getElementById("e").value);
+    var subject2 = parseInt(document.getElementById("r").value);
+    var subject3 = parseInt(document.getElementById("n").value);
+    var subject4 = parseInt(document.getElementById("w").value);
+    var subject5 = parseInt(document.getElementById("i").value);
+    var subject6 = parseInt(document.getElementById("s").value);
+    var subject7 = parseInt(document.getElementById("p").value);
+    
+    var total = subject1 + subject2 + subject3 + subject4 + subject5 + subject6 + subject7;
+    document.getElementById("calculate").innerHTML = "Total Grade:   " +total;
+    }
+
+
+
+
+function average() {
+    var subject1 = parseInt(document.getElementById("e").value);
+    var subject2 = parseInt(document.getElementById("r").value);
+    var subject3 = parseInt(document.getElementById("n").value);
+    var subject4 = parseInt(document.getElementById("w").value);
+    var subject5 = parseInt(document.getElementById("i").value);
+    var subject6 = parseInt(document.getElementById("s").value);
+    var subject7 = parseInt(document.getElementById("p").value);
+
+    var total = subject1 + subject2 + subject3 + subject4 + subject5 + subject6 + subject7;
+    var avg = total / 7;
+    document.getElementById("average").innerHTML = "Average Grade:   " +avg;
+}
+
+
+
+
+function remarks() {
+    var subject1 = parseInt(document.getElementById("e").value);
+    var subject2 = parseInt(document.getElementById("r").value);
+    var subject3 = parseInt(document.getElementById("n").value);
+    var subject4 = parseInt(document.getElementById("w").value);
+    var subject5 = parseInt(document.getElementById("i").value);
+    var subject6 = parseInt(document.getElementById("s").value);
+    var subject7 = parseInt(document.getElementById("p").value);
+
+    var total = subject1 + subject2 + subject3 + subject4 + subject5 + subject6 + subject7;
+    var avg = parseFloat(total) / 7;
+
+
+        if(avg >= 90 && avg <= 100)
+        {
+            document.getElementById("remarks").innerHTML = "PASSED - OUTSTANDING";
+        }
+        else if(avg >= 85 && avg <= 89)
+        {
+            document.getElementById("remarks").innerHTML = "PASSED - VERY SATISFACTORY";
+        }
+        else if(avg >= 80 && avg <= 84)
+        {
+            document.getElementById("remarks").innerHTML = "PASSED - SATISFACTORY";
+        }
+        else if(avg >= 75 && avg <= 79)
+        {
+            document.getElementById("remarks").innerHTML = "PASSED - FAIRLY SATISFACTORY";
+        }
+        else if(avg<75 && avg >=10)
+        {
+            document.getElementById("remarks1").innerHTML = "FAILED - DID NOT MEET EXPECTATIONS";
+        }
+        else if(avg>100)
+        {
+            document.getElementById("remarks1").innerHTML = "DOES NOT EXIST";
+        }
+        else if(avg<10)
+        {
+            document.getElementById("remarks1").innerHTML = "ERROR! PLEASE TRY AGAIN";
+        }
+}
+
+</script>
+</html>
